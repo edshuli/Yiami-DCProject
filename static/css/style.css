@@ -18,6 +18,14 @@ body {
     background-color:#f0e8e8de;
 }
 
+.opaque-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.19);
+}
 
 /*----NavBar-------*/
 .navbar-brand {
@@ -31,8 +39,7 @@ body {
     color: #a52a2a;
 }
 .navbar {
-    padding-bottom: 0;
-    padding-top: 0;
+    padding: 0 10px;
     font-family: 'Open Sans', sans-serif;
     font-size: 1em;
     font-weight: bold;
@@ -44,6 +51,7 @@ nav{
     background-color: #ee6e7300
 }
 .navbar-toggler {
+    margin-bottom: 20px;
     line-height: 0.5;
     border: 1px solid #fafaf8;
     border-radius: .25rem;
@@ -81,13 +89,14 @@ nav{
         -o-background-size: cover;
         background-size: cover;
 }*/
-img .bgImg{
+.bgImg{
     position: fixed; 
     top: 0; 
     left: 0; 
   /* Preserve aspet ratio*/ 
     min-width: 100%;
     min-height: 100%;
+    width: 100vw;
 }
 
 
@@ -249,16 +258,7 @@ img .bgImg{
     }
 }
 
-/*Ipad*/
-
 /*------IPAD---------*/
-
-@media (min-width:599px) and (max-width:1023px) {
-    .subscribeContainer input {
-        margin-left: 30%;
-    }
-
-}
 
 @media (min-width:599px) {
     .btn--cta {
@@ -268,20 +268,14 @@ img .bgImg{
     }
     .navbar-brand {
         font-size: 35px;
-    }
-    .jumbotron {
-        margin-top: 15%;
+        margin-top: 14px;
     }
     .jumbotron-header {
        font-size:40px;
     }
 }
 
-@media (min-width:1023px){
-    .card{
-        width:60rem;
-    }
-}
+
 
 @media (min-width:767px) {
     .subscribeContainer {
@@ -289,15 +283,32 @@ img .bgImg{
     }
 }
 
+@media (min-width:599px) and (max-width:1023px) {
+    .subscribeContainer input {
+        margin-left: 30%;
+    }
+     .jumbotron {
+        margin-top: 15%;
+    }
+
+}
+
 
 /*------IPAD PRO/ BIG SCREEN -----*/
+@media (min-width:1023px){
+    .card{
+        width:60rem;
+    }
+     .jumbotron {
+        margin-top: 30%;
+    }
 
-@media (min-width:1023px) {
     .subscribeContainer input {
         margin-left: 35%;
 
     }
 }
+
 
 
 
