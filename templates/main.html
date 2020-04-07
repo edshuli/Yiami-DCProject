@@ -1,7 +1,9 @@
 {% extends 'base.html' %} {% block content %}
- 
-  <div class="calloutContainer">
-  <img class="bgImg" src="/static/img/hpImg.jpg" alt="Background image">
+ <div class="container-fluid ">
+   <img class="backImg" src="/static/img/hpImg.jpg" alt="Background image">
+</div>
+  <div class="container calloutContainer">
+  
       <!-- Callout -->
       <div class="row">
           <div class="col-12">
@@ -15,10 +17,10 @@
       </div>
   </div>
   
-  <div class="container postsContainer">
+ <!-- <div class="container postsContainer">
   {% for recipe in posts %}
    <div class="row">
-    <div class="col s12 lg3">
+    <div class="col-md-6 col-lg-6">
       <div class="card">
         <div class="card-image">
           <img src="{{ recipe.imageURL }}">
