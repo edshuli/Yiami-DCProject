@@ -12,7 +12,7 @@ app.config["MONGO_URI"] = 'mongodb+srv://tokyo_ghoul:edna@myfirstcluster-uvyys.m
 mongo = PyMongo(app)
 
 #All Recipes
-all_recipes = mongo.db.recipe_manager.recipes
+all_recipes = mongo.db.recipes
 
 #Homepage
 
@@ -21,7 +21,7 @@ all_recipes = mongo.db.recipe_manager.recipes
 def main():
     recipes = all_recipes.find()
     return render_template('main.html', recipes=recipes)
-    
+
 #Show All Recipes
 
 @app.route('/get_recipes')

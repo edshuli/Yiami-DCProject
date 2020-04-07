@@ -123,6 +123,8 @@ nav{
 }
 
 
+/* All Recipes */
+
 .container .postsContainer{
     margin-top: 30%;
     margin-bottom:50px;
@@ -130,25 +132,24 @@ nav{
 }
 
 .card {
-    width: 50rem;
+    width: 20rem;
     margin-bottom: 20px;
     border: 1px solid #a52a2a;
 }
 
 
+/*Probably unecessary
+
 .card-image img{
     width: 10rem;
     height: 500px;
-}
+}*/
 
 .card .card-image .card-title {
     position: static;
     color: #92222d;
-    bottom: 0;
-    left: 0;
-    max-width: 100%;
-    padding: 24px;
-    font-size: 30px;
+    padding: 10px;
+    font-size: 25px;
     font-weight: 400;
     font-family: 'Unna', serif;
 }
@@ -156,18 +157,18 @@ nav{
 
 .card .card-content p {
     margin: 0;
-    color: #212529;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 300;
 }
 
-.card .card-action {
-    background-color: #cd5c5c8a;
+.card-content{
+    padding: 15px 24px;
 }
 
+
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
-    color: #212529;
-    margin-left: 40%;
+    color: #a52a2a;
+    margin-left: 30%;
 }
 
 /*------SUBSCRIBE CONTAINER -------*/
