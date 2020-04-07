@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+	<div class="jumbotron text-center">
+		<h1>Yiami Recipes</h1>
+		<p>For </p>
+	</div>
+	<!--Filtering the recipes form returning results to the same page-->
+	<div id="menus">
+		<form action="{{url_for('sort_recipes')}}" method="POST">
+			<div class="btn btn-info select-recipes"><strong>Select Recipes:</strong></div>
+			<div class="form-row align-items-center form-wrapper">
+				<div class="col-auto my-1">
+					<select name="course" class="custom-select mr-sm-2 inlineFormCustomSelect">
+                        <option value="Snack">Snacks</option>
+                        <option value="Main">Main</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Eating on Budget">Eating on Budget</option>
+                    </select>
+				</div>
+				<div class="col-auto my-1">
+					<select name="Categories" class="custom-select mr-sm-2 inlineFormCustomSelect">
+                        <option value="Healthy">Healthy</option>
+                        <option value="Vegetarian">Vegetarian</option>
+                        <option value="Vegan">Vegan</option>
+                    </select>
+				</div>
+				<div class="col-auto my-1">
+					<button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<!--Show all recipes-->
+	<div class="container postsContainer">
+		<div class="row">
+        {% for recipe in recipes %}
+			<div class="col-md-6 col-lg-6">
+				<div class="card">
+					<div class="card-image">
+						<img src="{{ recipe.imageURL }}">
+						<span class="card-title">{{ recipe.name }}</span>
+					</div>
+					<div class="card-content">
+						<p>{{recipe.description}}</p>
+					</div>
+					<div class="card-action">
+						<a href="#">Read More</a>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock %}
