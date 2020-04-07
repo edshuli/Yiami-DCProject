@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Sacramento|Ubuntu:100,200,300,400,500,600,700|Unna&display=swap:100,200,300,400,500,600,700');
+
+html,
+body {
+    max-width: 100%;
+}
+
+body {
+    height: 100vh;
+    background: url(img/hpImg.jpg) no-repeat bottom right fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    max-width: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    color: red;
+    color: #222;
+    font-weight: 400;
+    background-color: #f6efe5;
+}
+
+
+/*----NavBar-------*/
+.navbar-brand {
+    font-family: "Sacramento", cursive;
+    font-weight: 600;
+    font-size: 30px;
+}
+.fa-cookie-bite {
+    font-size: 20px;
+    padding-left: 5px;
+    color: #a52a2a;
+}
+.navbar {
+    padding-bottom: 0;
+    padding-top: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
+nav{
+    background-color: #ee6e7300
+}
+.navbar-toggler {
+    line-height: 0.5;
+    border: 1px solid #fafaf8;
+    border-radius: .25rem;
+    padding: 0;
+}
+/* Delete the blue shadow from the navabar-toggler */
+.navbar-toggler:focus,
+.navabar-toggler:active {
+    outline: none !important;
+    box-shadow: none;
+}
+.navbar-collapse {
+    text-align: center;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.85);
+}
+.btn--cta {
+    font-weight: 400;
+    border-radius: 35px;
+    width: 120px;
+}
+.btn--red {
+    color: white;
+    background-color: #ab3837;
+    border-color: #b624054d;
+}
+
+/*----------------HOMEPAGE CONTAINER ---*/
+ /*Jumbotron
+.calloutContainer{
+    background: url("../img/hmImg.jpg") no-repeat center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}*/
+.calloutContainer .bgImg{
+     position: fixed; 
+    top: 0; 
+    left: 0; 
+  /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+}
+
+
+.jumbotron {
+    margin-top: 30%;
+    background-color: #e9ecef03;
+}
+.jumbotron-header {
+    color: #f8f9fa;
+    font-weight: 400;
+    font-size:30px;
+    margin-bottom: 30px;
+    font-family: 'Open Sans', sans-serif;
+}
+.jumbotron .lead {
+    margin: 25px 0;
+    color: #f8f9fa;
+    font-size: 25px;
+}
+.smallTitle {
+    color: #46090f;
+    font-weight: 700;
+}
+
+
+.container .postsContainer{
+    margin-top: 30%;
+    margin:  50px 20px 200px;
+    height: auto;
+    background-color: red;
+    
+}
+
+.card {
+    width: 50rem;
+    margin-bottom: 30px;
+    border: 1px solid #a52a2a;
+}
+
+
+.card-image img{
+    width: 10rem;
+    height: 500px;
+}
+
+.card .card-image .card-title {
+    position: static;
+    color: #92222d;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    padding: 24px;
+    font-size: 30px;
+    font-weight: 400;
+    font-family: 'Unna', serif;
+}
+
+
+.card .card-content p {
+    margin: 0;
+    color: #212529;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.card .card-action {
+    background-color: #cd5c5c8a;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+    color: #212529;
+    margin-left: 40%;
+}
+
+/*------SUBSCRIBE CONTAINER -------*/
+
+.subscribeContainer {
+    border: 1px dotted #a52a2a;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.subscribeContainer h3 {
+    text-align: center;
+    font-family: 'Unna', serif;
+    font-weight: 400;
+    font-size: 2em;
+    line-height: 1.4;
+    margin-bottom: .4em;
+}
+
+
+.emailSub {
+    font-family: inherit;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: .9rem;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.subscribeContainer input {
+    text-align: center;
+    margin-bottom: .8em;
+    letter-spacing: .03em;
+    color: #333 !important;
+    padding: 1.2em !important;
+    width: 290px !important;
+    border: 0 !important;
+    background: rgba(0, 0, 0, 0.025) !important;
+}
+
+.subscribeContainer button {
+    display: inline-block;
+    position: relative;
+    padding: 14px 26px;
+    margin-bottom: .25em;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    outline: 0;
+    border: 2px solid #333;
+    color: #333;
+    text-shadow: none;
+    background: none;
+    border-radius: 0;
+    font-weight: 400;
+}
+
+/*----------------MEDIA QUERIES-----------*/
+@media(max-width: 320px) {
+    
+    .subscribeContainer h3 {
+        font-size: 1.7em;
+    }
+
+    .subscribeContainer input {
+        width: 250px!important;
+    }
+}
+
+@media (min-width:380px) and (max-width:412px) {
+    .subscribeContainer input {
+        margin-left: 25px;
+    }
+}
+
+@media(max-width: 361px) {
+    .jumbotron .lead {
+        font-size: 20px;
+    }
+}
+
+
+@media(max-width: 639px) {
+    #menu-dropdown {
+        background-color: #dae0e5bd;
+    }
+}
+
+/*Ipad*/
+
+/*------IPAD---------*/
+
+@media (min-width:599px) and (max-width:1023px) {
+    .subscribeContainer input {
+        margin-left: 30%;
+    }
+
+}
+
+@media (min-width:599px) {
+    .btn--cta {
+        font-weight: bold;
+        border-radius: 23px;
+        width: 160px;
+    }
+    .navbar-brand {
+        font-size: 35px;
+    }
+    .jumbotron {
+        margin-top: 15%;
+    }
+    .jumbotron-header {
+       font-size:40px;
+    }
+}
+
+@media (min-width:1023px){
+    .card{
+        width:60rem;
+    }
+}
+
+@media (min-width:767px) {
+    .subscribeContainer {
+        background-color: #ffffff5e;
+    }
+}
+
+
+/*------IPAD PRO/ BIG SCREEN -----*/
+
+@media (min-width:1023px) {
+    .subscribeContainer input {
+        margin-left: 35%;
+
+    }
+}
+
+
+

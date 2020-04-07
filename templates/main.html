@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %}
+ 
+  <div class="calloutContainer">
+  <img class="bgImg" src="/static/img/hpImg.jpg" alt="Background image">
+      <!-- Callout -->
+      <div class="row">
+          <div class="col-12">
+              <section class="callout jumbotron text-center">
+                  <h1 class="jumbotron-header">Your online cooking book!</h1>
+                  <hr class="dividers">
+                  <p class="lead">In Greece they say:
+                      <span class="smallTitle">Love passes through the stomach!</span> So here your will find all kind of recipes to win the heart of your beloved ones!</P>
+              </section>
+          </div>
+      </div>
+  </div>
+  
+  <div class="container postsContainer">
+  {% for recipe in posts %}
+   <div class="row">
+    <div class="col s12 lg3">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{ recipe.imageURL }}">
+          <span class="card-title">{{ recipe.name }}</span>
+        </div>
+        <div class="card-content">
+          <p>{{recipe.description}}</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Read More</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>-->
+
+
+{% endblock %}
