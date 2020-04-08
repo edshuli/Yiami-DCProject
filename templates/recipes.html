@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="container">
+<div class="container-fluid">
 	<div class="jumbotron text-center">
         <h1 class="mainTitle">Yiami Recipes</h1>
         <p>In Greece they say:
@@ -10,8 +10,8 @@
 	<div class="sortRecipes">
 		<form action="{{url_for('sort_recipes')}}" method="POST">
 			<div class="btn btn--sm btn--red selectRecipes">Select Recipes:</div>
-			<div class="form-row align-items-center form-wrapper">
-				<div class="col-auto my-1">
+			<div class="form-row  form-wrapper">
+				<div class="col-md-6 my-1">
 					<select name="course" class="custom-select">
                         <option selected>Course</option>
                         <option value="Main">Main</option>
@@ -20,7 +20,7 @@
                         <option value="Snack">Snacks</option>
                     </select>
 				</div>
-				<div class="col-auto my-1">
+				<div class="col-md-6 my-1">
 					<select name="category" class="custom-select">
                         <option selected>Category</option>
                         <option value="Healthy">Healthy</option>
@@ -33,16 +33,19 @@
 				</div>
 			</div>
 		</form>
-	</div>
+	</div> 
+
+
 	<!--Show all recipes-->
-	<div class="container postsContainer">
-      {% for recipe in recipes %}
+	<div class="container-fluid recipesContainer">
 		<div class="row">
-			<div class="col-md-6 col-lg-4">
+			<div class="col-sm-12 col-md-6 col-lg-4">
+                {% for recipe in recipes %}
 				<div class="card">
 					<div class="card-image">
 						<img src="{{ recipe.imageURL }}">
-						<span class="card-title text-center">{{ recipe.name }}</span>
+                        <a href="{{url_for('recipe', recipe_id = recipe._id)}}">
+						<span class="card-title text-center">{{ recipe.name }}</span></a>
 					</div>
 					<div class="card-content">
 						<p>{{recipe.description}}</p>
@@ -53,9 +56,10 @@
 				</div>
 				{% endfor %}
 			</div>
+            </div>
 		</div>
 	</div>
-</div>
+   </div> 
 
 
 

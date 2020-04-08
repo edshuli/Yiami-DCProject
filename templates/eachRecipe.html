@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block content %}
+  <div class="container recipeContainer">
+        <div class="card eachRecipeCard">
+            <div class="row">
+                <div class="col">
+                     <div class="card-body text-center">
+                        <h4>{{ recipes.name }}</h4>
+                    </div> 
+                    <img class="card-img-top" src="{{ recipes.imageURL }}">
+                    <div class="recipeInfo">
+                        <span class="rec-info">Author</span><span class="recInfo"><strong>{{ recipes.author }}</strong></span>
+                        <span class="rec-info">Course</span><span class="recInfo"><strong>{{ recipes.course }}</strong></span> 
+                        <span class="rec-info">Category</span><span class="recInfo"><strong>{{ recipes.category }}</strong></span> 
+                    </div>    
+                    <div class="recipeDesc text-center">
+                        <p>{{ recipes.description }}</p>
+                    </div>
+                    <div class="recipeInfo">
+                        <span class="rec-info"><i class="fas fa-utensils"></i>Yields</span><span class="recInfo"><strong>{{ recipes.yields }}</strong></span>
+                        <span class="rec-info"><i class="far fa-clock"></i>Cooking Time</span><span class="recInfo"><strong>{{ recipes.cook_time }}</strong></span> 
+                    </div>  
+                    <div class="recipeIngredients">
+                        <h3 class="ingredientText">Ingredients</h3>
+                        {% for ingredient in recipes.ingredients %}
+                            <ul>
+                                <li class="checkbox">{{ ingredient }}</li>
+                            </ul>
+                        {% endfor %}
+                    </div>
+                    <hr>
+                    <div class="recipeNote text-center">
+                    <h4>Notes</h4>
+                        <p>{{ recipes.notes }}</p>
+                    </div>
+                    <div class="recipeSteps">
+                        <h4 class="text-center">Instructions</h4> 
+                        {% for step in recipes.steps %}
+                            <ul>
+                                <li class="checkbox">{{ step }}</li>
+                            </ul>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

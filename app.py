@@ -3,8 +3,6 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
-
-
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'recipe_manager'
 app.config["MONGO_URI"] = 'mongodb+srv://tokyo_ghoul:edna@myfirstcluster-uvyys.mongodb.net/recipe_manager?retryWrites=true&w=majority'
@@ -37,7 +35,12 @@ def sort_recipes():
         print(request.form)
         return render_template('recipes.html', recipes=recipes)
     return render_template('recipes.html', recipes=recipes)
-        
+
+#Show Each Recipe
+@app.route('/recipe/<recipe_id>')   
+def recipe(recipe_id):
+    recipes = all_recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template('eachRecipe.html', recipes=recipes)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

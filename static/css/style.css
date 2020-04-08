@@ -27,6 +27,21 @@ body {
     background-color: rgba(0, 0, 0, 0.19);
 }
 
+a {
+    color: rgb(182, 98, 98);
+    text-decoration: none;
+   
+}
+
+a:hover {
+    color: #a52a2a;
+    text-decoration: none;
+}
+
+.changeColor{
+   background-color:#a52a2a;
+}
+
 /*----NavBar-------*/
 .navbar-brand {
     font-family: "Sacramento", cursive;
@@ -69,6 +84,9 @@ nav{
 .navbar-light .navbar-nav .nav-link {
     color: rgba(0, 0, 0, 0.85);
 }
+
+
+
 .btn--cta {
     font-weight: 400;
     border-radius: 35px;
@@ -78,6 +96,10 @@ nav{
     color: white;
     background-color: #ab3837;
     border-color: #b624054d;
+}
+
+.btn--red:hover{
+    color:#a52a2a;
 }
 
 /*----------------HOMEPAGE CONTAINER ---*/
@@ -132,12 +154,7 @@ nav{
     color: #87160e;
 }
 
-.btn-small{
-   background-color: #dc3545;
-}
-
-
-.container .postsContainer{
+.container .recipesContainer{
     margin-top: 30%;
     margin-bottom:50px;
     
@@ -153,7 +170,8 @@ nav{
 /*Probably unecessary*/
 
 .card .card-image img{
-    height: 500px;
+    height:280px;
+    width:100%;
 }
 
 .card .card-image .card-title {
