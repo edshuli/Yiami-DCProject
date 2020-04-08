@@ -93,7 +93,6 @@ nav{
     position: fixed; 
     top: 0; 
     left: 0; 
-  /* Preserve aspet ratio*/ 
     min-width: 100%;
     min-height: 100%;
     width: 100vw;
@@ -103,27 +102,40 @@ nav{
 
 .jumbotron {
     margin-top: 30%;
-    background-color: #e9ecef03;
+    background-color: #e9ecefba;
 }
+
 .jumbotron-header {
-    color: #f8f9fa;
+    color: #a41d2a;
     font-weight: 400;
     font-size:30px;
-    margin-bottom: 30px;
+    margin-top:5px;
+    margin-bottom: 20px;
     font-family: 'Open Sans', sans-serif;
 }
 .jumbotron .lead {
     margin: 25px 0;
-    color: #f8f9fa;
+    color: #212529;;
     font-size: 25px;
 }
 .smallTitle {
-    color: #46090f;
+    color: #7f1a24;;
     font-weight: 700;
 }
 
 
 /* All Recipes */
+.mainTitle{
+    font-family: "Sacramento", cursive;
+    font-weight: 600;
+    font-size: 50px;
+    color: #87160e;
+}
+
+.btn-small{
+   background-color: #dc3545;
+}
+
 
 .container .postsContainer{
     margin-top: 30%;
@@ -138,12 +150,11 @@ nav{
 }
 
 
-/*Probably unecessary
+/*Probably unecessary*/
 
-.card-image img{
-    width: 10rem;
+.card .card-image img{
     height: 500px;
-}*/
+}
 
 .card .card-image .card-title {
     position: static;
@@ -289,20 +300,17 @@ nav{
     .subscribeContainer input {
         margin-left: 30%;
     }
-     .jumbotron {
-        margin-top: 15%;
-    }
 
 }
 
 
 /*------IPAD PRO/ BIG SCREEN -----*/
-@media (min-width:1023px){
+@media (min-width:1025px){
     .card{
         width:60rem;
     }
      .jumbotron {
-        margin-top: 30%;
+        margin-top: 15%;
     }
 
     .subscribeContainer input {
