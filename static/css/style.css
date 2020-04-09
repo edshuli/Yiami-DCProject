@@ -6,7 +6,7 @@ body {
 }
 
 body {
-  height: 100vh;
+    height: 100vh;
     background: url("../img/hpImg.jpg") no-repeat bottom right fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -389,8 +389,21 @@ strong{
 
 /*------IPAD PRO/ BIG SCREEN -----*/
 @media (min-width:1025px){
+    body{
+    height: 100vh;
+    background: url("../img/hpImg1.jpg") no-repeat bottom right fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    }
     .card{
         width:60rem;
+    }
+
+    .recipesContainer .card {
+    width: 25rem;
+
     }
      .jumbotron {
         margin-top: 15%;
