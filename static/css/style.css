@@ -6,12 +6,12 @@ body {
 }
 
 body {
- /*   height: 100vh;
-    background: url("./img/hpImg.jpg") no-repeat bottom right fixed;
+  height: 100vh;
+    background: url("../img/hpImg.jpg") no-repeat bottom right fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;*/
+    background-size: cover;
     max-width: 100%;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 400;
@@ -65,10 +65,9 @@ a:hover {
 }
 
 nav{
-    background-color: #ee6e7300
+   background-color: #f1eaea45;
 }
 .navbar-toggler {
-    margin-bottom: 20px;
     line-height: 0.5;
     border: 1px solid #fafaf8;
     border-radius: .25rem;
@@ -141,6 +140,10 @@ nav{
 
 /*------Recipes ------*/
 /* All Recipes */
+.card{
+    height:98%
+}
+
 .mainTitle{
     font-family: "Sacramento", cursive;
     font-weight: 600;
@@ -222,12 +225,17 @@ strong{
 }
 #recipeDesc,
 #recipeNote
-{
+{   
+    text-align: inherit;
+    margin-left: 5px;
+    margin-right: 5px;
     font-family: Unna;
     font-size: 15px;
     font-weight: 300;
     line-height: inherit;
 }
+
+
 
 .recipeIngredients{
     display: block;
@@ -340,13 +348,16 @@ strong{
 
 @media(max-width: 639px) {
     #menu-dropdown {
-        background-color: #dae0e5bd;
+        background-color: #f1eaea54;
     }
 }
 
 /*------IPAD---------*/
 
 @media (min-width:599px) {
+    nav{
+    background-color:transparent;
+    }
     .btn--cta {
         font-weight: bold;
         border-radius: 23px;
@@ -354,7 +365,7 @@ strong{
     }
     .navbar-brand {
         font-size: 35px;
-        margin-top: 14px;
+        margin-top: 5px;
     }
     .jumbotron-header {
        font-size:40px;
