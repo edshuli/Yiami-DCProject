@@ -14,12 +14,13 @@
         <div class="row">
             <div class="col-12">
                 <nav class="navbar navbar-expand-sm fixed-top navbar-light ">
-                    <a href="#" class="navbar-brand">Yiami<i class="fas fa-cookie-bite"></i></a>
+                    <a href="{{url_for('main')}}" class="navbar-brand">Yiami<i class="fas fa-cookie-bite"></i></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-dropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
                          <span class="navbar-toggler-icon"></span>
                      </button>
                     <div id="menu-dropdown" class="navbar-collapse collapse">
                         <ul class="navbar-nav mr-auto">
+                            <li><a class="nav-link text-uppercase" href="{{url_for('main')}}">Home</a></li>
                             <li><a class="nav-link text-uppercase" href="{{url_for('get_recipes')}}">Recipes</a></li>
                             <li><a class="nav-link text-uppercase" href="#">Add your recipe!</a></li>
                         </ul>
