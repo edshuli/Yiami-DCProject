@@ -18,6 +18,7 @@ body {
     background-color:#f0e8e8de;
 }
 
+/*Add overlay to jumbotron*/
 .opaque-overlay {
     position: fixed;
     top: 0;
@@ -30,13 +31,14 @@ body {
 a {
     color: rgb(182, 98, 98);
     text-decoration: none;
-   
 }
 
 a:hover {
     color: #a52a2a;
     text-decoration: none;
 }
+
+/*Chnage color when you press the button*/
 
 .changeColor{
    background-color:#a52a2a;
@@ -85,8 +87,7 @@ nav{
     color: rgba(0, 0, 0, 0.85);
 }
 
-
-
+/*Style for all the buttons*/
 .btn--cta {
     font-weight: 400;
     border-radius: 35px;
@@ -102,15 +103,8 @@ nav{
     color:#a52a2a;
 }
 
-/*----------------HOMEPAGE CONTAINER ---*/
- /*Jumbotron
-.calloutContainer{
-    background: url("../img/hmImg.jpg") no-repeat center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-}*/
+/*------Main ------*/
+
 .bgImg{
     position: fixed; 
     top: 0; 
@@ -121,7 +115,7 @@ nav{
     height:100vh;
 }
 
-
+ /*Jumbotron*/
 .jumbotron {
     margin-top: 30%;
     background-color: #e9ecefba;
@@ -145,7 +139,7 @@ nav{
     font-weight: 700;
 }
 
-
+/*------Recipes ------*/
 /* All Recipes */
 .mainTitle{
     font-family: "Sacramento", cursive;
@@ -156,18 +150,14 @@ nav{
 
 .container .recipesContainer{
     margin-top: 30%;
-    margin-bottom:50px;
-    
+    margin-bottom:50px;   
 }
 
-.card {
+.recipesContainer .card {
     width: 20rem;
     margin-bottom: 20px;
     border: 1px solid #a52a2a;
 }
-
-
-/*Probably unecessary*/
 
 .card .card-image img{
     height:280px;
@@ -183,7 +173,6 @@ nav{
     font-family: 'Unna', serif;
 }
 
-
 .card .card-content p {
     margin: 0;
     font-size: 15px;
@@ -194,11 +183,77 @@ nav{
     padding: 15px 24px;
 }
 
-
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
-    color: #a52a2a;
-    margin-left: 30%;
+    color: #a52a2a!important;
+    
 }
+/*------Each Recipe -------*/
+.recipeContainer{
+    margin-top:20%;
+}
+
+.recipeTitle{
+    font-size: 30px;
+    font-weight: 400;
+    font-family: "Unna";
+    margin: 5px;
+    letter-spacing: 1px;
+}
+
+/*Recipe Info*/
+.recipeInfo{
+    text-align: center;
+    margin-top: 20px;
+}
+
+strong{
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: block;
+}
+
+.cookInfoDesc{
+    text-transform: uppercase;
+    font-size: 11px;
+    color: #922c36;
+    font-weight:600;
+}
+#recipeDesc,
+#recipeNote
+{
+    font-family: Unna;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: inherit;
+}
+
+.recipeIngredients{
+    display: block;
+    margin: 15px 0 20px;
+    padding: 12px 24px;
+    border: 1px solid #97202b59;
+}
+   
+/*Main Style for Titles*/
+.cookText{
+    font-family:"Unna";
+    margin:0 0 10px 0;
+    display: block;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    
+}
+
+.cookItem,
+.cookSteps{
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
 
 /*------SUBSCRIBE CONTAINER -------*/
 

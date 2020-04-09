@@ -4,39 +4,51 @@
             <div class="row">
                 <div class="col">
                      <div class="card-body text-center">
-                        <h4>{{ recipes.name }}</h4>
+                        <h4 class="recipeTitle">{{ recipes.name }}</h4>
                     </div> 
                     <img class="card-img-top" src="{{ recipes.imageURL }}">
                     <div class="recipeInfo">
-                        <span class="rec-info">Author</span><span class="recInfo"><strong>{{ recipes.author }}</strong></span>
-                        <span class="rec-info">Course</span><span class="recInfo"><strong>{{ recipes.course }}</strong></span> 
-                        <span class="rec-info">Category</span><span class="recInfo"><strong>{{ recipes.category }}</strong></span> 
+                       <strong class="cookInfo">Author</strong><span class="cookInfoDesc">{{ recipes.author }}</span>
+
+                        <strong class="cookInfo">Course</strong>
+                        {% for crc in recipes.course %}
+                        <span class="cookInfoDesc">{{ crc }}</span> 
+                        {% endfor %}
+                        <strong class="cookInfo">Category</strong>
+                        {% for item in recipes.category %}
+                        <span class="cookInfoDesc">{{ item }}</span>
+                        {% endfor %}
                     </div>    
+                    <hr>
+
                     <div class="recipeDesc text-center">
-                        <p>{{ recipes.description }}</p>
+                        <p id="recipeDesc">{{ recipes.description }}</p>
                     </div>
+
+                    <hr>
+
                     <div class="recipeInfo">
-                        <span class="rec-info"><i class="fas fa-utensils"></i>Yields</span><span class="recInfo"><strong>{{ recipes.yields }}</strong></span>
-                        <span class="rec-info"><i class="far fa-clock"></i>Cooking Time</span><span class="recInfo"><strong>{{ recipes.cook_time }}</strong></span> 
+                        <strong class="cookInfo"><i class="fas fa-utensils"></i>Yields</strong><span class="cookInfoDesc">{{ recipes.yields }}</span>
+                        <strong class="cookInfo"><i class="far fa-clock"></i>Cooking Time</strong><span class="cookInfoDesc">{{ recipes.cook_time }}</span> 
                     </div>  
                     <div class="recipeIngredients">
-                        <h3 class="ingredientText">Ingredients</h3>
+                        <h3 class="cookText">Ingredients</h3>
                         {% for ingredient in recipes.ingredients %}
                             <ul>
-                                <li class="checkbox">{{ ingredient }}</li>
+                                <li class="cookItem">{{ ingredient.quantity }} {{ ingredient.name }}</li>
                             </ul>
                         {% endfor %}
                     </div>
                     <hr>
-                    <div class="recipeNote text-center">
-                    <h4>Notes</h4>
-                        <p>{{ recipes.notes }}</p>
+                    <div class="recipeNote">
+                    <h4 class="cookText">Notes</h4>
+                        <p id="recipeNote">{{ recipes.notes }}</p>
                     </div>
                     <div class="recipeSteps">
-                        <h4 class="text-center">Instructions</h4> 
+                        <h4 class="cookText">Instructions</h4> 
                         {% for step in recipes.steps %}
                             <ul>
-                                <li class="checkbox">{{ step }}</li>
+                                <li class="cookSteps">{{ step }}</li>
                             </ul>
                         {% endfor %}
                     </div>

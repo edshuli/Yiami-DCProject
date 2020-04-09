@@ -50,8 +50,8 @@
 					<div class="card-content">
 						<p>{{recipe.description}}</p>
 					</div>
-					<div class="card-action">
-						<a href="#">Read More</a>
+					<div class="card-action text-center">
+						<a href="{{url_for('recipe', recipe_id = recipe._id)}}">Read More</a>
 					</div>
 				</div>
 				{% endfor %}
