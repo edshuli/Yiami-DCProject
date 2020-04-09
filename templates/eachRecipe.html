@@ -32,20 +32,36 @@
                         <strong class="cookInfo"><i class="far fa-clock"></i>Cooking Time</strong><span class="cookInfoDesc">{{ recipes.cook_time }}</span> 
                     </div>  
                     <div class="recipeIngredients">
-                        <h3 class="cookText">Ingredients</h3>
+                        <h3 class="cookText text-center">Ingredients</h3>
                         {% for ingredient in recipes.ingredients %}
                             <ul>
                                 <li class="cookItem">{{ ingredient.quantity }} {{ ingredient.name }}</li>
                             </ul>
                         {% endfor %}
                     </div>
+
+                    <div class="row groupIngredient">
+                        {% for recipe in recipes.ingredients_group %}
+                           {% for ingredient in recipe.group %}
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <h5 class="cookText text-center">{{ ingredient.group_name }}</h5>
+                                    <ul class="cookItem">
+                                        <li>
+                                            {{ingredient.quantity}}
+                                            {{ingredient.name}}
+                                        </li>
+                                    </ul>
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
                     <hr>
                     <div class="recipeNote">
-                    <h4 class="cookText">Notes</h4>
+                    <h4 class="cookText text-center">Notes</h4>
                         <p id="recipeNote">{{ recipes.notes }}</p>
                     </div>
                     <div class="recipeSteps">
-                        <h4 class="cookText">Instructions</h4> 
+                        <h4 class="cookText text-center">Instructions</h4> 
                         {% for step in recipes.steps %}
                             <ul>
                                 <li class="cookSteps">{{ step }}</li>

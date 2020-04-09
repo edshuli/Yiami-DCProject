@@ -259,7 +259,13 @@ strong{
     font-family: 'Open Sans', sans-serif;
 }
 
+ul li {
+    list-style-type: none;
+}
 
+.recipeSteps{
+    margin-right: 10px;
+}
 
 
 /*------SUBSCRIBE CONTAINER -------*/
