@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="container-fluid">
-	<div class="jumbotron text-center">
+<div class="container">
+	<div class="jumbotron text-center" id="recipesJumbotron">
         <h1 class="mainTitle">Yiami Recipes</h1>
         <p>In Greece they say:
         <span class="smallTitle">Love passes through the stomach!</span> So here your will find all kind of recipes to win the heart of your beloved ones!</P>
@@ -38,7 +38,7 @@
 
 
 	<!--Show all recipes-->
-	<div class="container-fluid recipesContainer">
+	<div class="container recipesContainer">
 		<div class="row">
          {% for recipe in recipes %}
 			<div class="col-sm-12 col-md-6 col-lg-4">

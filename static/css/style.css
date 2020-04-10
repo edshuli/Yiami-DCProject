@@ -25,7 +25,7 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.19);
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 a {
@@ -38,11 +38,6 @@ a:hover {
     text-decoration: none;
 }
 
-/*Chnage color when you press the button*/
-
-.changeColor{
-   background-color:#a52a2a;
-}
 
 /*----NavBar-------*/
 .navbar-brand {
@@ -102,22 +97,11 @@ nav{
     color:#a52a2a;
 }
 
-/*------Main ------*/
-
-.bgImg{
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    min-width: 100%;
-    min-height: 100%;
-    width: 100vw;
-    height:100vh;
-}
 
  /*Jumbotron*/
 .jumbotron {
     margin-top: 30%;
-    background-color: #e9ecefba;
+    background-color: #e9ecef00;
 }
 
 .jumbotron-header {
@@ -201,6 +185,7 @@ nav{
     margin: 5px;
     letter-spacing: 1px;
 }
+
 
 /*Recipe Info*/
 .recipeInfo{
@@ -353,7 +338,10 @@ ul li {
 
 @media(max-width: 639px) {
     #menu-dropdown {
-        background-color: #f1eaea54;
+      background-color: #f1eaea;;
+    }
+    .cardImgTop{
+      width:100%;
     }
 }
 
@@ -378,8 +366,14 @@ ul li {
 }
 
 
-
 @media (min-width:767px) {
+    .cardImgTop{
+        padding: 0 20px;
+    }
+
+    #recipesJumbotron{
+        margin-top: 10%;
+    }
     .subscribeContainer {
         background-color: #ffffff5e;
     }
@@ -403,16 +397,17 @@ ul li {
     -o-background-size: cover;
     background-size: cover;
     }
-    .card{
-        width:60rem;
-    }
-
+   
     .recipesContainer .card {
-    width: 25rem;
+    width: 20rem;
 
     }
      .jumbotron {
         margin-top: 15%;
+    }
+
+    .recipeContainer {
+    margin-top: 10%;
     }
 
     .subscribeContainer input {
