@@ -151,6 +151,7 @@ nav{
 }
 
 .card .card-image .card-title {
+    text-align: -webkit-center;
     position: static;
     color: #92222d;
     padding: 10px;
@@ -210,7 +211,7 @@ strong{
 #recipeDesc,
 #recipeNote
 {   
-    text-align: inherit;
+    text-align: -webkit-center;
     margin-left: 5px;
     margin-right: 5px;
     font-family: Unna;

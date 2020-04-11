@@ -47,7 +47,7 @@
 					<div class="card-image">
 						<img src="{{ recipe.imageURL }}">
                         <a href="{{url_for('recipe', recipe_id = recipe._id)}}">
-						<span class="card-title text-center">{{ recipe.name }}</span></a>
+						<span class="card-title">{{ recipe.name }}</span></a>
 					</div>
 					<div class="card-content">
 						<p>{{recipe.description}}</p>
