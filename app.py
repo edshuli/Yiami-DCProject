@@ -1,13 +1,22 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from flask_bcrypt import Bcrypt
+
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'recipe_manager'
 app.config["MONGO_URI"] = 'mongodb+srv://tokyo_ghoul:edna@myfirstcluster-uvyys.mongodb.net/recipe_manager?retryWrites=true&w=majority'
+app.config['SECRET_KEY']=os.environ.get("SECRET_KEY")
+
+# Set Randome Key
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
 
 mongo = PyMongo(app)
+bcrypt = Bcrypt(app)
+
 
 #All Recipes
 all_recipes = mongo.db.recipes
@@ -42,6 +51,43 @@ def recipe(recipe_id):
     recipes = all_recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template('eachRecipe.html', recipes=recipes)
 
+
+#Sign In
+@app.route('/signIn', methods=['POST'])
+def login():
+    users = mongo.db.users
+    login_user = users.find_one({'name' : request.form['username']})
+
+
+    if login_user:
+        if bcrypt.check_password_hash(request.form['password'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
+            session['username'] = request.form['username']
+            flash('Welcome {}!')
+            return redirect(url_for('get_recipes'))
+    
+    flash('Invalid username/password combination') 
+    return render_template('signInUp.html')   
+
+# Sign Up
+@app.route('/signUp', methods=['POST', 'GET'])
+def signUp():
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'name': request.form['username']})
+        if existing_user is None:
+            pw_hash = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+            #Check this one
+           # pw_hash = bcrypt.generate_password_hash('secret', 10)
+           # bcrypt.check_password_hash(pw_hash, 'secret')
+            users.insert({'name': request.form['username'], 'email': request.form['email'],'password': pw_hash })
+           # session['username'] = request.form['username']
+            flash('Welcome {}!') 
+            return redirect(url_for('main'))
+
+        return 'That username already exists!'
+
+    return render_template('signInUp.html')
+        
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
