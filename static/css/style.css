@@ -18,16 +18,6 @@ body {
     background-color:#f0e8e8de;
 }
 
-/*Add overlay to jumbotron*/
-.opaque-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
-}
-
 a {
     color: rgb(182, 98, 98);
     text-decoration: none;
@@ -120,6 +110,16 @@ nav{
 .smallTitle {
     color: #7f1a24;;
     font-weight: 700;
+}
+
+/*Add overlay to jumbotron*/
+.opaque-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 /*------Recipes ------*/
@@ -253,7 +253,41 @@ ul li {
     margin-right: 10px;
 }
 
+/*------Sign In Container -------*/
 
+.signInContainer{
+    margin-top:20%;
+}
+
+
+/*------Sign Up Container -------*/
+.signContainer{
+    margin-top:35%;
+    border: 1px dotted #a52a2a;
+    margin-bottom: 30px;
+    width: 88%;
+    background-color:#ccc6bf94;
+}
+
+.signTitle{
+    text-align: center;
+    font-family: 'Unna', serif;
+    font-weight: 400;
+    font-size: 2em;
+    line-height: 1.4;
+    margin-bottom: .4em;
+}
+
+label{
+    margin-bottom: .8em;
+    letter-spacing: .03em;
+    color: #333 !important;
+    width: 290px !important;
+}
+
+#signUpBtn{
+    margin-bottom:10px;
+}
 /*------SUBSCRIBE CONTAINER -------*/
 
 .subscribeContainer {
@@ -364,10 +398,25 @@ ul li {
     .jumbotron-header {
        font-size:40px;
     }
+
+     .cardImgTop{
+        padding: 0 20px;
+    }
+
+    #recipesJumbotron{
+        margin-top: 10%;
+    }
+    .signContainer{
+    margin-top:20%;
+    padding-left:30%
+    }
+    .subscribeContainer {
+        background-color: #ffffff5e;
+    }
 }
 
 
-@media (min-width:767px) {
+/*@media (min-width:767px) {
     .cardImgTop{
         padding: 0 20px;
     }
@@ -378,7 +427,7 @@ ul li {
     .subscribeContainer {
         background-color: #ffffff5e;
     }
-}
+}*/
 
 @media (min-width:599px) and (max-width:1023px) {
     .subscribeContainer input {

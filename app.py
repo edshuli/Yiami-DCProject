@@ -24,6 +24,8 @@ all_recipes = mongo.db.recipes
 
 #All Users
 users=mongo.db.users
+
+
 #Homepage
 
 @app.route('/')
@@ -31,10 +33,13 @@ users=mongo.db.users
 def main():
     recipes = all_recipes.find()
 
-    if 'username' in session:
-        flash('You are logged in as ' + session['username']) 
-        return render_template('main.html', username=session['username'], username_id=users['_id'])
+    if 'user' in session:
+        flash('You are logged in as ' + session['user']) 
+        return render_template('main.html', username=session['user'], user_id=users['_id'])
     return render_template('main.html', recipes=recipes)    
+
+
+
 #Show All Recipes
 
 @app.route('/get_recipes')
@@ -59,21 +64,21 @@ def recipe(recipe_id):
 
 
 #Sign In
-@app.route('/signIn', methods=['POST'])
-def login():
-    users = mongo.db.users
-    login_user = users.find_one({'username' : request.form['username']})
-    password = request.form['password']
-
-
-    if login_user:
-        if check_password_hash(users['password'], password):
-            session['username'] = request.form['username']
+@app.route('/logIn', methods=['POST','GET'])
+def logIn():
+    if request.method == "POST":
+        login_user = users.find_one({'username':request.form['username']})
+        password = request.form['password']
+        if login_user and  check_password_hash(users['password'], password):
+            session['user'] = request.form['username']
             flash('Logged in as {username}!')
             return redirect(url_for('get_recipes'))
-    
-    flash('Invalid username/password combination') 
-    return render_template('signInUp.html')   
+        else:
+           flash('Invalid username/password combination') 
+    return render_template('signIn.html')   
+
+
+
 
 # Sign Up
 @app.route('/signUp', methods=['POST', 'GET'])
@@ -83,11 +88,11 @@ def signUp():
         if existing_user is None:
             pw_hash =  generate_password_hash(request.form['password'])
             users.insert_one({'username': request.form['username'], 'email': request.form['email'],'password': pw_hash })
-            session['username'] = request.form['username']
-            flash("Welcome session['username']!") 
+            session['user'] = request.form['username']
+            flash("Welcome session['user']!") 
             return redirect(url_for('main'))
         flash("Sorry username already exists!")
-    return render_template('signInUp.html')
+    return render_template('signUp.html')
 
 #Log Out
 @app.route('/logout')
