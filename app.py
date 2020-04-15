@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, request, url_for, session, f
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_bcrypt import Bcrypt
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app = Flask(__name__)
@@ -21,14 +22,19 @@ bcrypt = Bcrypt(app)
 #All Recipes
 all_recipes = mongo.db.recipes
 
+#All Users
+users=mongo.db.users
 #Homepage
 
 @app.route('/')
 @app.route('/main')
 def main():
     recipes = all_recipes.find()
-    return render_template('main.html', recipes=recipes)
 
+    if 'username' in session:
+        flash('You are logged in as ' + session['username']) 
+        return render_template('main.html', username=session['username'], username_id=users['_id'])
+    return render_template('main.html', recipes=recipes)    
 #Show All Recipes
 
 @app.route('/get_recipes')
@@ -56,13 +62,14 @@ def recipe(recipe_id):
 @app.route('/signIn', methods=['POST'])
 def login():
     users = mongo.db.users
-    login_user = users.find_one({'name' : request.form['username']})
+    login_user = users.find_one({'username' : request.form['username']})
+    password = request.form['password']
 
 
     if login_user:
-        if bcrypt.check_password_hash(request.form['password'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
+        if check_password_hash(users['password'], password):
             session['username'] = request.form['username']
-            flash('Welcome {}!')
+            flash('Logged in as {username}!')
             return redirect(url_for('get_recipes'))
     
     flash('Invalid username/password combination') 
@@ -72,22 +79,24 @@ def login():
 @app.route('/signUp', methods=['POST', 'GET'])
 def signUp():
     if request.method == 'POST':
-        users = mongo.db.users
-        existing_user = users.find_one({'name': request.form['username']})
+        existing_user = users.find_one({'username': request.form['username']})
         if existing_user is None:
-            pw_hash = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
-            #Check this one
-           # pw_hash = bcrypt.generate_password_hash('secret', 10)
-           # bcrypt.check_password_hash(pw_hash, 'secret')
-            users.insert({'name': request.form['username'], 'email': request.form['email'],'password': pw_hash })
-           # session['username'] = request.form['username']
-            flash('Welcome {}!') 
+            pw_hash =  generate_password_hash(request.form['password'])
+            users.insert_one({'username': request.form['username'], 'email': request.form['email'],'password': pw_hash })
+            session['username'] = request.form['username']
+            flash("Welcome session['username']!") 
             return redirect(url_for('main'))
-
-        return 'That username already exists!'
-
+        flash("Sorry username already exists!")
     return render_template('signInUp.html')
-        
+
+#Log Out
+@app.route('/logout')
+def logout():
+    session.pop('username')
+    flash("Successfully logged out")
+    return redirect(url_for('main'))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
