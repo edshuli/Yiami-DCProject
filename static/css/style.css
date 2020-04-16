@@ -15,12 +15,13 @@ body {
     max-width: 100%;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 400;
-    background-color:#f0e8e8de;
+    background-color: rgba(223, 230, 236, 0.33);;
 }
 
 
 a {
-    color: rgb(182, 98, 98);
+    color: rgb(102, 2, 2);
+    font-weight: 500;
     text-decoration: none;
 }
 
@@ -38,17 +39,18 @@ a:hover {
     transition: all .2s ease-in-out;
 }
 
-
 .navbar-brand {
     font-family: "Sacramento", cursive;
     font-weight: 600;
     font-size: 30px;
 }
+
 .fa-cookie-bite {
     font-size: 20px;
     padding-left: 5px;
     color: #a52a2a;
 }
+
 .navbar {
     padding: 0 10px;
     font-family: 'Open Sans', sans-serif;
@@ -58,9 +60,6 @@ a:hover {
     letter-spacing: 1px;
 }
 
-/*nav{
-   background-color: #f1eaea45;
-}*/
 .navbar-toggler {
     line-height: 0.5;
     border: 1px solid #fafaf8;
@@ -113,17 +112,26 @@ a:hover {
     margin-bottom: 20px;
     font-family: 'Open Sans', sans-serif;
 }
-.jumbotron .lead {
+.lead {
     margin: 25px 0;
     color: #212529;;
     font-size: 25px;
+    font-family: 'Unna', sans-serif;
 }
 .smallTitle {
     color: #7f1a24;;
-    font-weight: 700;
+    font-weight: 600;
 }
 
-/*Add overlay to jumbotron*/
+.dividers{
+    border-top: 1px dotted #a52a2a9e;
+}
+
+#author{
+    font-family: initial;
+}
+
+/*Add overlay to jumbotron
 .opaque-overlay {
     position: fixed;
     top: 0;
@@ -131,7 +139,7 @@ a:hover {
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.18);
-}
+}*/
 
 /*------Recipes ------*/
 /* All Recipes */
@@ -384,7 +392,8 @@ label{
 
 @media(max-width: 639px) {
     #menu-dropdown {
-      background-color: #f1eaea;;
+     /* background-color: rgba(223, 230, 236, 0.33);*/
+      background-color: rgba(223, 230, 236, 0.8);
     }
     .cardImgTop{
       width:100%;
@@ -394,9 +403,6 @@ label{
 /*------IPAD---------*/
 
 @media (min-width:599px) {
-    /*nav{
-    background-color:transparent;
-    }*/
     .btn--cta {
         font-weight: bold;
         border-radius: 23px;
@@ -427,8 +433,8 @@ label{
         background-color: #ffffff5e;
     }
     .signContainer .col{
-        padding-left:30%;
-        padding-right:30%;
+        padding-left:30%!important;
+        padding-right:30%!important;
     }
 }
 
@@ -453,7 +459,7 @@ label{
     }
     .opaque-overlay {
     background-color: rgba(0, 0, 0, 0.0);
-}
+   }
     .recipesContainer .card {
     width: 20rem;
 
