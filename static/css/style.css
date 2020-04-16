@@ -96,7 +96,17 @@ a:hover {
     color:#eec2c2;
 }
 
+ /*Alert Messages*/
+.alertContainer{
+    position: absolute;
+}
 
+#alertTitle{
+    font-size: 15px;
+    font-family: Unna;
+    padding-top: 50%;
+    margin-left: 22px;
+}
 
  /*Jumbotron*/
 .jumbotron {
@@ -131,15 +141,6 @@ a:hover {
     font-family: initial;
 }
 
-/*Add overlay to jumbotron
-.opaque-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.18);
-}*/
 
 /*------Recipes ------*/
 /* All Recipes */
@@ -436,12 +437,21 @@ label{
         padding-left:30%!important;
         padding-right:30%!important;
     }
+    #alertTitle {
+    font-size: 30px;
+    font-family: Unna;
+    padding-top: 30%;
+    margin-left: 150px;
+    }
 }
 
 
 @media (min-width:599px) and (max-width:1023px) {
     .subscribeContainer input {
         margin-left: 30%;
+    }
+    #alertTitle {
+    font-weight: 600;
     }
 
 }
@@ -483,11 +493,15 @@ label{
 
     .signContainer{
        margin-top:15%;
+       background-color: #ffffff5e;
     }
 
     .subscribeContainer input {
         margin-left: 35%;
 
+    }
+    #alertTitle {
+    font-weight: 400;
     }
 }
 

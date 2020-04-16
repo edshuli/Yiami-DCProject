@@ -24,7 +24,11 @@
                             <li><a class="nav-link text-uppercase" href="{{url_for('get_recipes')}}">Recipes</a></li>
                             <li><a class="nav-link text-uppercase" href="#">Add your recipe!</a></li>
                         </ul>
-                        <a href="{{url_for('logIn')}}" class="btn btn--cta btn--red">Sign in/up</a>
+                        {% if session.user %}
+							<a href="{{url_for('logOut')}}" class="btn btn--cta btn--red">Sign in/up</a>			
+						{% else %}
+						    <a href="{{url_for('logIn')}}" class="btn btn--cta btn--red">Sign in/up</a>
+						{% endif %}
                     </div>
                 </nav>
             </div>
@@ -32,13 +36,13 @@
     </div>
     
     <!--Displays flash messages -->
-    <div class="container alert-container">
+    <div class="container alertContainer">
       <div class="row">
         <div class="messages">
             {% with messages = get_flashed_messages() %} 
             {% if messages %} 
             {% for message in messages %}
-            <h5 class="text-center">{{message}}
+            <h5 id="alertTitle" class="text-center">{{message}}</h5>
             {% endfor %} 
             {% endif %} 
             {% endwith %}
