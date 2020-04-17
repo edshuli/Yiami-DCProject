@@ -97,6 +97,7 @@ a:hover {
 }
 
  /*Alert Messages*/
+
 .alertContainer{
     position: absolute;
 }
@@ -104,8 +105,11 @@ a:hover {
 #alertTitle{
     font-size: 15px;
     font-family: Unna;
-    padding-top: 50%;
-    margin-left: 22px;
+   /* padding-top: 3%;
+    margin-top: 4%;
+    padding-left: 40%;
+    margin-left: 50px;
+    display: inline-grid;*/
 }
 
  /*Jumbotron*/
@@ -407,7 +411,6 @@ label{
     .btn--cta {
         font-weight: bold;
         border-radius: 23px;
-        width: 160px;
     }
     .navbar-brand {
         font-size: 35px;
@@ -450,11 +453,17 @@ label{
     .subscribeContainer input {
         margin-left: 30%;
     }
-    #alertTitle {
-    font-weight: 600;
-    }
+   /* #alertTitle {
+    font-size:20px;
+    font-weight: 500;
+    display: inline-grid;
+    margin-left: 20%;
+    margin-top: 20px;
+    padding-left: 82%;
+    }*/
+  }
 
-}
+
 
 
 /*------IPAD PRO/ BIG SCREEN -----*/

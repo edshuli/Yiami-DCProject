@@ -7,20 +7,21 @@
 				<h5 class="signTitle">Sign Up</h5>
 			</div>
 			<form method="POST" action="/signUp">
+            {{ form.hidden_tag() }}
 				<div class="form-group ">
-					<label for="username">Username*</label>
-					<input name="username" type="text" class="form-control" id="username" placeholder="Username" required>
+					{{ form.username.label }}
+					{{ form.username(class="form-control") }}
 	            </div>
 					<div class="form-group">
-						<label for="email">Email</label>
-						<input name="email" type="email" class="form-control" id="email" placeholder="name@example.com" required>
+						{{ form.email.label }}
+						{{ form.email(class="form-control") }}
 	                </div>
 						<div class="form-group">
-							<label for="password">Password*</label>
-							<input class="form-control" name="password" type="password" id="password" placeholder="Your password" required>
+						{{ form.password.label }}
+						{{ form.password(class="form-control") }}
 	                    </div>
                     <div class="col-auto">
-							<button class="btn btn--sm btn--red" id="signUpBtn" type="submit">Sign Up</button>
+							{{ form.submit(class="btn btn--sm btn--red") }}
                     </div>        
 			</form>
 		</div>

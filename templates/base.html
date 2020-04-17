@@ -25,7 +25,7 @@
                             <li><a class="nav-link text-uppercase" href="#">Add your recipe!</a></li>
                         </ul>
                         {% if session.user %}
-							<a href="{{url_for('logOut')}}" class="btn btn--cta btn--red">Sign in/up</a>			
+							<a href="{{url_for('logOut')}}" class="btn btn--cta btn--red">Log Out</a>			
 						{% else %}
 						    <a href="{{url_for('logIn')}}" class="btn btn--cta btn--red">Sign in/up</a>
 						{% endif %}
@@ -35,20 +35,20 @@
         </div>
     </div>
     
-    <!--Displays flash messages -->
+<!-- !--Displays flash messages 
     <div class="container alertContainer">
       <div class="row">
         <div class="messages">
             {% with messages = get_flashed_messages() %} 
             {% if messages %} 
             {% for message in messages %}
-            <h5 id="alertTitle" class="text-center">{{message}}</h5>
+            <h5 id="alertTitle">{{message}}</h5>
             {% endfor %} 
             {% endif %} 
             {% endwith %}
         </div>
       </div>	
-  </div>
+  </div>-->
     {% block content %} {% endblock %}
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

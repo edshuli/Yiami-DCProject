@@ -1,9 +1,11 @@
 import os
+
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_bcrypt import Bcrypt
 from werkzeug.security import generate_password_hash, check_password_hash
+from form import RegisterForm, LoginForm
 
 
 app = Flask(__name__)
@@ -34,7 +36,7 @@ def main():
     recipes = all_recipes.find()
 
     if 'user' in session:
-        flash('You are logged in as ' + session['user']) 
+        flash('Hello ' + session['user'] +'!')
         return render_template('main.html', username=session['user'], user_id=users['_id'])
     return render_template('main.html', recipes=recipes)    
 
@@ -66,16 +68,16 @@ def recipe(recipe_id):
 #Sign In
 @app.route('/logIn', methods=['POST','GET'])
 def logIn():
-    if request.method == "POST":
-        login_user = users.find_one({'username':request.form['username']})
-        password = request.form['password']
-        if login_user and  check_password_hash(users['password'], password):
+    form = LoginForm()
+    if form.validate_on_submit():
+        loginUser = users.find_one({'username':request.form['username']})
+        if loginUser and  check_password_hash(loginUser['password'], form.password.data):
             session['user'] = request.form['username']
-            flash('Logged in as {username}!')
+            flash('Hello ' + session['user'] +'!')
             return redirect(url_for('get_recipes'))
         else:
            flash('Invalid username/password combination') 
-    return render_template('signIn.html')   
+    return render_template('signIn.html', form=form)   
 
 
 
@@ -83,20 +85,23 @@ def logIn():
 # Sign Up
 @app.route('/signUp', methods=['POST', 'GET'])
 def signUp():
-    if request.method == 'POST':
-        existing_user = users.find_one({'username': request.form['username']})
-        if existing_user is None:
+    form = RegisterForm()
+    if form.validate_on_submit():
+      users = mongo.db.users
+      existingUser = users.find_one({'username': request.form['username']}) 
+      if existingUser is None:
             pw_hash =  generate_password_hash(request.form['password'])
             users.insert_one({'username': request.form['username'], 'email': request.form['email'],'password': pw_hash })
             session['user'] = request.form['username']
             return redirect(url_for('main'))
-        flash("Sorry username already exists!")
-    return render_template('signUp.html')
+
+      flash("Sorry username already exists!")
+    return render_template('signUp.html', form=form)
 
 #Log Out
 @app.route('/logOut')
 def logOut():
-    session.pop('username')
+    session.pop('user')
     flash("Successfully logged out")
     return redirect(url_for('main'))
 

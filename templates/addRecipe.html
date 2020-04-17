@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+
+{% block body %}
+<h1>Add your own recipe</h1>
+<form action="/userRecipe" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name(size=32) }}
+    </p>
+    <p>
+        {{ form.ingredients.label }}<br>
+        {{ form.ingredients(size=32) }}
+    </p>
+    <p>
+        {{ form.instructions.label }}<br>
+        {{ form.instructions(size=32) }}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}
