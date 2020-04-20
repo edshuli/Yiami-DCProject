@@ -20,9 +20,10 @@
                      </button>
                     <div id="menu-dropdown" class="navbar-collapse collapse">
                         <ul class="navbar-nav mr-auto">
-                            <li><a class="nav-link text-uppercase" href="{{url_for('main')}}">Home</a></li>
-                            <li><a class="nav-link text-uppercase" href="{{url_for('get_recipes')}}">Recipes</a></li>
-                            <li><a class="nav-link text-uppercase" href="#">Add your recipe!</a></li>
+                            <li class="nav-item active"><a class="nav-link text-uppercase" id="active" href="{{url_for('main')}}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link text-uppercase" href="{{url_for('get_recipes')}}">Recipes</a></li>
+                            <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="{{url_for('addRecipe')}}">Add your recipe!</a></li>
                         </ul>
                         {% if session.user %}
 							<a href="{{url_for('logOut')}}" class="btn btn--cta btn--red">Log Out</a>			

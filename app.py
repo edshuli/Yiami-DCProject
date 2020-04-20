@@ -41,30 +41,6 @@ def main():
     return render_template('main.html', recipes=recipes)    
 
 
-
-#Show All Recipes
-
-@app.route('/get_recipes')
-def get_recipes():
-    recipes = all_recipes.find()
-    return render_template("recipes.html", recipes=recipes)
-
-#Sort Recipes
-@app.route('/sort_recipes', methods = ['GET','POST'])
-def sort_recipes():
-    if request.method == 'POST':
-        recipes = all_recipes.find({ "$or": [ { "course": request.form["course"] }, { "category": request.form["category"] }] })
-        print(request.form)
-        return render_template('recipes.html', recipes=recipes)
-    return render_template('recipes.html', recipes=recipes)
-
-#Show Each Recipe
-@app.route('/recipe/<recipe_id>')   
-def recipe(recipe_id):
-    recipes = all_recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template('eachRecipe.html', recipes=recipes)
-
-
 #Sign In
 @app.route('/logIn', methods=['POST','GET'])
 def logIn():
@@ -78,9 +54,6 @@ def logIn():
         else:
            flash('Invalid username/password combination') 
     return render_template('signIn.html', form=form)   
-
-
-
 
 # Sign Up
 @app.route('/signUp', methods=['POST', 'GET'])
@@ -105,6 +78,47 @@ def logOut():
     flash("Successfully logged out")
     return redirect(url_for('main'))
 
+
+#Show All Recipes
+
+@app.route('/get_recipes')
+def get_recipes():
+    recipes = all_recipes.find()
+    return render_template("recipes.html", recipes=recipes)
+
+#Sort Recipes
+@app.route('/sort_recipes', methods = ['GET','POST'])
+def sort_recipes():
+    if request.method == 'POST':
+        recipes = all_recipes.find({ "$and": [ { "course": request.form["course"] }, { "category": request.form["category"] }] })
+        print(request.form)
+        return render_template('recipes.html', recipes=recipes)
+    return render_template('recipes.html', recipes=recipes)
+
+#Show Each Recipe
+@app.route('/recipe/<recipe_id>')   
+def recipe(recipe_id):
+    recipes = all_recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template('eachRecipe.html', recipes=recipes)
+
+#Add Recipe
+@app.route('/addRecipe', methods=['POST', 'GET'])
+def addRecipe():
+    if request.method == 'POST':
+        all_recipes.insert_one({'name': request.form['name'],
+                        'imageURL': request.form['imageURL'],
+                        'description': request.form['description'],
+                        'notes': request.form['notes'],
+                        'ingredients': request.form.getlist['ingredients'],
+                        'steps': request.form.getlist('steps'),
+                        'course': request.form['course'],
+                        'category': request.form('category'),
+                        'cook_time': request.form['cook_time'],
+                        'yields': request.form['yields'],
+                        'author': request.form('author')
+                            })
+        return redirect(url_for('get_recipes'))
+    return render_template('addRecipe.html')
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

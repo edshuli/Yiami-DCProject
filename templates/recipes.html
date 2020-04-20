@@ -8,33 +8,30 @@
 	</div>
 	<!--Filtering the recipes form returning results to the same page-->
 	<div class="sortRecipes">
-		<form action="{{url_for('sort_recipes')}}" method="POST">
-			<div class="btn btn--sm btn--red selectRecipes">Select Recipes:</div>
-			<div class="form-row  form-wrapper">
-				<div class="col-md-6 my-1">
-					<select name="course" class="custom-select">
-                        <option selected>Course</option>
+		<label class="selectRecipes">Select Recipes:</label>
+        <form action="{{url_for('sort_recipes')}}" method="POST">
+					<select name="course" class="custom-select-sm">
+                        <option disabled selected>Course</option>
                         <option value="Main">Main</option>
                         <option value="Desert">Dessert</option>
                         <option value="Eating on budget">Eating on Budget</option>
                         <option value="Snack">Snacks</option>
                     </select>
-				</div>
-				<div class="col-md-6 my-1">
-					<select name="category" class="custom-select">
-                        <option selected>Category</option>
+					<select name="category" class="custom-select-sm">
+                        <option disabled selected>Category</option>
                         <option value="Healthy">Healthy</option>
                         <option value="Vegetarian">Vegetarian</option>
                         <option value="Vegan">Vegan</option>
                     </select>
-				</div>
-				<div class="col-auto my-1">
-					<button class="btn btn--sm btn--red">Submit</button>
-				</div>
-			</div>
-		</form>
-	</div> 
-    </div>
+					<button class="btn btn-sm btn--red">Submit</button>
+                    <div class="container resetBtn">
+                          <a href="{{ url_for('get_recipes')}}" class="btn-sm"><i class="fas fa-sync">Reset</i></a>
+                    </div>  
+         </form>   
+               
+	</div>
+		
+	
 
 
 	<!--Show all recipes-->
@@ -42,10 +39,9 @@
 		<div class="row">
          {% for recipe in recipes %}
 			<div class="col-sm-12 col-md-6 col-lg-4">
-               
 				<div class="card">
 					<div class="card-image">
-					 <a href="{{url_for('recipe', recipe_id = recipe._id)}}">	<img src="{{ recipe.imageURL }}"></a>
+					 <a href="{{url_for('recipe', recipe_id = recipe._id)}}"><img src="{{ recipe.imageURL }}"></a>
                         <a href="{{url_for('recipe', recipe_id = recipe._id)}}">
 						<span class="card-title">{{ recipe.name }}</span></a>
 					</div>

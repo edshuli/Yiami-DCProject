@@ -76,7 +76,10 @@ a:hover {
     text-align: center;
 }
 .navbar-light .navbar-nav .nav-link {
-    color: rgba(0, 0, 0, 0.85);
+    color: rgba(0, 0, 0, 0.8);
+}
+#active{
+    font-weight: 600;
 }
 
 /*Style for all the buttons*/
@@ -147,6 +150,22 @@ a:hover {
 
 
 /*------Recipes ------*/
+/* Sort Label*/
+.sortRecipes{
+    padding-left: 15px;
+}
+.selectRecipes{
+    font-family: -webkit-body;
+}
+
+.resetBtn{
+    display:contents;
+    border:1px solid #87160e;
+}
+.resetBtn .btn-sm{
+    border: 1px solid;
+}
+
 /* All Recipes */
 .card{
     height:98%
@@ -160,7 +179,7 @@ a:hover {
 }
 
 .container .recipesContainer{
-    margin-top: 30%;
+    margin-top: 20px;
     margin-bottom:50px;   
 }
 
@@ -277,6 +296,18 @@ ul li {
     margin-right: 10px;
 }
 
+/*------Add Recipe--------------*/
+.addRecipeCont{
+    margin-top:50px;
+    background-color: #e7dcd226;
+}
+
+
+button{
+    background-color: #ab3837;
+    color: white;
+    border: none;
+}
 /*------Sign In Container -------*/
 
 .signInContainer{
@@ -293,7 +324,8 @@ ul li {
     background-color:#ccc6bf94;
 }
 
-.signTitle{
+.signTitle,
+.addRecipeTitle{
     text-align: center;
     font-family: 'Unna', serif;
     font-weight: 400;
@@ -453,14 +485,6 @@ label{
     .subscribeContainer input {
         margin-left: 30%;
     }
-   /* #alertTitle {
-    font-size:20px;
-    font-weight: 500;
-    display: inline-grid;
-    margin-left: 20%;
-    margin-top: 20px;
-    padding-left: 82%;
-    }*/
   }
 
 
@@ -505,12 +529,12 @@ label{
        background-color: #ffffff5e;
     }
 
-    .subscribeContainer input {
-        margin-left: 35%;
-
-    }
     #alertTitle {
     font-weight: 400;
+    }
+    .addRecipeCont{
+    margin-top:50px;
+    background-color: #e7dcd275;
     }
 }
 
