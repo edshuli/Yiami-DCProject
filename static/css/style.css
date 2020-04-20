@@ -306,6 +306,11 @@ button{
     color: white;
     border: none;
 }
+
+#ingredients,
+#steps{
+    margin-top:5px;
+}
 /*------Sign In Container -------*/
 
 .signInContainer{

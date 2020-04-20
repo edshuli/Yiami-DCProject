@@ -11,8 +11,28 @@ $(document).ready(function(){
     }
     });
 
+    $("#addIngridient").click(function() {
+        $('<input class="form-control" id="ingredients" type="text" name="ingredients" required type="text" value="">').insertBefore('#addIngridient');	
+         });
+        // Remove aditional row
+	$('#removeIngridient').click(function() {
+		$('#ingredientsList input:last').remove();
+	});
+                
+      // add and remove step
+      //Add aditional preparations step row
+	$('#addSteps').click(function() {
+		$('<input class="form-control" id="steps" type="text" name="steps" required type="text" value="">').insertBefore('#addSteps');
+
+	});	
+	
+	
+	// Remove aditional preparation step row
+	$('#removeSteps').click(function() {
+		$('#stepsList input:last').remove();
+	});
+ }); 
 
 
 
-});
 
