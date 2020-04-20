@@ -237,16 +237,15 @@ a:hover {
     margin-top: 20px;
 }
 
-strong{
+h6{
     font-size: 11px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-weight: 800;
     text-transform: uppercase;
     display: block;
 }
 
 .cookInfoDesc{
-    text-transform: uppercase;
     font-size: 11px;
     color: #922c36;
     font-weight:600;
@@ -257,19 +256,18 @@ strong{
     text-align: -webkit-center;
     margin-left: 5px;
     margin-right: 5px;
-    font-family: Unna;
+    font-family: initial;
     font-size: 15px;
     font-weight: 300;
     line-height: inherit;
+    margin-top: 15px;
 }
-
 
 
 .recipeIngredients{
     display: block;
     margin: 15px 0 20px;
     padding: 12px 24px;
-    border: 1px solid #97202b59;
 }
    
 /*Main Style for Titles*/
@@ -285,7 +283,7 @@ strong{
 
 .cookItem,
 .cookSteps{
-    font-family: 'Open Sans', sans-serif;
+    font-family: serif;
 }
 
 ul li {
