@@ -42,13 +42,13 @@
 				<div class="card">
 					<div class="card-image">
 					 <a href="{{url_for('recipe', recipe_id = recipe._id)}}"><img src="{{ recipe.imageURL }}"></a>
-                        <a href="{{url_for('recipe', recipe_id = recipe._id)}}">
-						<span class="card-title">{{ recipe.name }}</span></a>
 					</div>
-					<div class="card-content">
+					<div class="card-body">
+                        <a href="{{url_for('recipe', recipe_id = recipe._id)}}">
+						<h4 class="card-title">{{ recipe.name }}</h4></a>
 						<p>{{recipe.description}}</p>
 					</div>
-					<div class="card-action text-center">
+					<div class="card-footer text-center">
 						<a href="{{url_for('recipe', recipe_id = recipe._id)}}">Read More</a>
 					</div>
 				</div>

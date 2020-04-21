@@ -90,7 +90,7 @@ def get_recipes():
 @app.route('/sort_recipes', methods = ['GET','POST'])
 def sort_recipes():
     if request.method == 'POST':
-        recipes = all_recipes.find({ "$and": [ { "course": request.form["course"] }, { "category": request.form["category"] }] })
+        recipes = all_recipes.find({ "$and": [ { "course": request.form["course"] }, { "category": request.form["category"] }]})
         print(request.form)
         return render_template('recipes.html', recipes=recipes)
     return render_template('recipes.html', recipes=recipes)
@@ -102,23 +102,34 @@ def recipe(recipe_id):
     return render_template('eachRecipe.html', recipes=recipes)
 
 #Add Recipe
-@app.route('/addRecipe', methods=['POST', 'GET'])
+@app.route('/addRecipe')
 def addRecipe():
+    return render_template("addRecipe.html")
+
+#Insert Recipe
+@app.route('/insertRecipe', methods=['POST'])
+def insertRecipe():
     if request.method == 'POST':
         all_recipes.insert_one({'name': request.form['name'],
                         'imageURL': request.form['imageURL'],
                         'description': request.form['description'],
                         'notes': request.form['notes'],
-                        'ingredients': request.form.getlist['ingredients'],
+                        'ingredients': request.form.getlist('ingredients'),
                         'steps': request.form.getlist('steps'),
-                        'course': request.form['course'],
-                        'category': request.form('category'),
+                        'course': request.form.getlist('course'),
+                        'category': request.form.getlist('category'),
                         'cook_time': request.form['cook_time'],
                         'yields': request.form['yields'],
-                        'author': request.form('author')
+                        'author': request.form['author']
                             })
+        flash("New recipe added")                     
         return redirect(url_for('get_recipes'))
     return render_template('addRecipe.html')
+
+#Edit Recipe
+@app.route('/editRecipe/<recipe_id>')
+def editRecipe(recipe_id):
+    return render_template("editRecipe.html", recipe = all_recipes.find_one({"_id": ObjectId(recipe_id)}))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

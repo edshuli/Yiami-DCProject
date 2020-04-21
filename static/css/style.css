@@ -30,6 +30,7 @@ a:hover {
     text-decoration: none;
 }
 
+
 /*----NavBar-------*/
 .scroll{
     background-color:#ccc6bf94;
@@ -193,7 +194,7 @@ a:hover {
     width:100%;
 }
 
-.card .card-image .card-title {
+.card-title {
     text-align: -webkit-center;
     position: static;
     color: #92222d;
@@ -237,7 +238,9 @@ a:hover {
     margin-top: 20px;
 }
 
-h6{
+.cookInfo{
+    margin-top: 5px;
+    margin-bottom:0px;
     font-size: 11px;
     letter-spacing: 1px;
     font-weight: 800;
@@ -280,6 +283,9 @@ h6{
     line-height: 1.5;
     
 }
+.recipeIngredients .cookItem{
+    padding-left:30%
+}
 
 .cookItem,
 .cookSteps{
@@ -305,6 +311,10 @@ button{
     background-color: #ab3837;
     color: white;
     border: none;
+}
+
+.addRemoveItem{
+    margin-top: 10px;
 }
 
 #ingredients,

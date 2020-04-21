@@ -10,26 +10,25 @@
                     </div>
 
                     <div class="recipeInfo">
-                       <h6 class="cookInfo">Author</h6><h7 class="cookInfoDesc">{{ recipes.author }}</h7>
+                       <h6 class="cookInfo">Author</h6>
+                       <span class="cookInfoDesc">{{ recipes.author }}</span>
                         <h6 class="cookInfo">Course</h6>
                         {% for crc in recipes.course %}
-                        <h7 class="cookInfoDesc">{{ crc }}</h7> 
+                        <span class="cookInfoDesc">{{ crc }}</span> 
                         {% endfor %}
                         <h6 class="cookInfo">Category</h6>
                         {% for item in recipes.category %}
-                        <h7 class="cookInfoDesc">{{ item }}</h7>
+                        <span class="cookInfoDesc">{{ item }}</span>
                         {% endfor %}
-                    </div>    
-                    <div class="recipeInfo">
-                        <h6 class="cookInfo"><i class="fas fa-utensils"></i>Yields</h6><h7 class="cookInfoDesc">{{ recipes.yields }}</h7>
-                        <h6 class="cookInfo"><i class="far fa-clock"></i>Cooking Time</h6><h7 class="cookInfoDesc">{{ recipes.cook_time }}</h7> 
+                        <h6 class="cookInfo"><i class="fas fa-utensils"></i>Yields</h6><span class="cookInfoDesc">{{ recipes.yields }}</span>
+                        <h6 class="cookInfo"><i class="far fa-clock"></i>Cooking Time</h6><span class="cookInfoDesc">{{ recipes.cook_time }}</span> 
                     </div>  
                     <hr>
                     <div class="recipeIngredients">
                         <h3 class="cookText text-center">Ingredients</h3>
                         {% for ingredient in recipes.ingredients %}
                             <ul>
-                                <li class="cookItem">{{ ingredient.quantity }} {{ ingredient.name }}</li>
+                                <li class="cookItem">{{ ingredient}}</li>
                             </ul>
                         {% endfor %}
                     </div>
@@ -62,6 +61,10 @@
                             </ul>
                         {% endfor %}
                     </div>
+                    <div class="container text-center">
+                      <a href="{{url_for('editRecipe', recipe_id=recipes._id)}}" class="btn btn--red btn-sm ">Edit Recipe</a>
+                     
+                   </div>
         </div>
 
 {% endblock %}
