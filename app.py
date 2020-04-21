@@ -110,7 +110,8 @@ def addRecipe():
 @app.route('/insertRecipe', methods=['POST'])
 def insertRecipe():
     if request.method == 'POST':
-        all_recipes.insert_one({'name': request.form['name'],
+        recipes = all_recipes
+        recipes.insert_one({'name': request.form['name'],
                         'imageURL': request.form['imageURL'],
                         'description': request.form['description'],
                         'notes': request.form['notes'],
@@ -127,9 +128,34 @@ def insertRecipe():
     return render_template('addRecipe.html')
 
 #Edit Recipe
-@app.route('/editRecipe/<recipe_id>')
-def editRecipe(recipe_id):
-    return render_template("editRecipe.html", recipe = all_recipes.find_one({"_id": ObjectId(recipe_id)}))
+@app.route('/editRecipe/<recipes_id>')
+def editRecipe(recipes_id):
+    recipes = all_recipes.find_one({"_id": ObjectId(recipes_id)})
+    return render_template("editRecipe.html", recipes = recipes)
+
+@app.route('/updateRecipe/<recipes_id>', methods=["POST"])
+def updateRecipe(recipes_id):
+    recipes=all_recipes
+    recipes.update( {'_id': ObjectId(recipes_id)},
+        { 
+            '$set' :{
+                        'name': request.form['name'],
+                        'imageURL': request.form['imageURL'],
+                        'description': request.form['description'],
+                        'notes': request.form['notes'],
+                        'ingredients': request.form.getlist('ingredients'),
+                        'steps': request.form.getlist('steps'),
+                        'course': request.form.getlist('course'),
+                        'category': request.form.getlist('category'),
+                        'cook_time': request.form['cook_time'],
+                        'yields': request.form['yields'],
+                        'author': request.form['author']
+            }
+        })
+    return redirect(url_for('get_recipes'))
+
+
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

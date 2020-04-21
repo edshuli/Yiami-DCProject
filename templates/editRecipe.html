@@ -2,95 +2,106 @@
 
 <div class="container addRecipeCont">
 <h2 class="text-center addRecipeTitle">Upload Recipe</h2>
-<form action="/addRecipe" method="POST">
+<form action="{{url_for('updateRecipe', recipes_id=recipes._id)}}" method="POST">
    <div class="form-group">
       <div class="col s12 input-field">
         <label for="name">Recipe Title</label>
-        <input class="form-control" id="name" type="text" name="name" placeholder="Easy Salmon">
+        <input class="form-control" id="name" type="text" name="name" value="{{recipes.name}}">
       </div>
    </div>  
    <div class="form-group">
       <div class="input-field col s12">
         <label for="imageURL">Image</label>
-        <input class="form-control" id="imageURL" type="text" name="imageURL" placeholder="https://diethood.com/Garlic-Butter-Baked-Salmon-12.jpg">
+        <input class="form-control" id="imageURL" type="text" name="imageURL" value="{{recipes.imageURL}}">
       </div>
      </div> 
    <div class="form-group">
       <div class="input-field col s12">
         <label for="description">Description</label>
-        <textarea name="description" id="description" class="form-control" placeholder="Perfectly baked salmon in the oven!"></textarea>
+        <input name="description" id="description" class="form-control" value="{{recipes.description}}"></input>
       </div>
    </div>
    <div class="form-group">
       <div class="input-field col s12">
         <label for="notes">Notes</label>
-        <input class="form-control" id="notes" type="text" name="notes" placeholder="Tips to help the reader">
+        <input class="form-control" id="notes" type="text" name="notes" value="{{recipes.notes}}">
       </div>
    </div>
+
    <div class="form-group">
-      <div class="input-field col s12">
+   {% for step in recipes.steps %}
+      <div class="input-field col s10">
         <label for="steps">Steps</label>
-        <input class="form-control" id="steps" type="text" name="steps" placeholder="Add oil, oregano and salt on the salmon" >
-         <div class="addRemoveItem" id="stepsList" >
+        <input class="form-control" id="steps" type="text" name="steps" value="{{step}}" required >
+         <div class="addRemoveItem col s2" id="stepsList" >
             <button type="button" value="addSteps" id="addSteps"><i class="fa fa-plus" aria-hidden="true"></i></button>
             <button type="button" value="removeSteps" id="removeSteps"><i class="fa fa-minus" aria-hidden="true"></i></button>
         </div>
       </div>
+    {% endfor %}  
    </div> 
+
    <div class="form-group ingredients">
-      <div class="input-field col s12">
+   {% for ingredient in recipes.ingredients %}
+      <div class="input-field col s10">
         <label for="ingredients">Ingredients</label>
-        <input class="form-control" id="ingredients" type="text" name="ingredients" placeholder="4 to 6 cups broccoli florets">
-        <div class="addRemoveItem" id="ingredientsList">
+        <input class="form-control" id="ingredients" type="text" name="ingredients" value="{{ingredient}}" required >
+        <div class="addRemoveItem col s2" id="ingredientsList">
             <button type="button" value="addIngredients" id="addIngridient"><i class="fa fa-plus" aria-hidden="true"></i></button>
             <button type="button" value="removeIngredients" id="removeIngridient"><i class="fa fa-minus" aria-hidden="true"></i></button>
-        </div>
       </div>
-   </div> 
+      </div> 
+    {% endfor %}  
+   </div>
    <div class="form-group">
       <div class="input-field col s12">
         <label for="course">Course</label>
         <select name="course" class="custom-select">
             <option disabled selected>Course</option>
-            <option value="Main">Main</option>
-            <option value="Desert">Dessert</option>
-            <option value="Eating on budget">Eating on Budget</option>
-            <option value="Snack">Snacks</option>
+            {% for item in recipes.course %}
+            {% if item in recipes.course %}
+            <option value="{{ item }}" selected>{{ item }}</option>
+            {% else %}
+            <option value="{{ item }}">{{ item }}</option>
+            {% endif %}
+            {% endfor %}   
         </select>
       </div>
    </div>  
    <div class="form-group">
       <div class="input-field col s12">
       <label for="category">Category</label>
-        <select name="course" class="custom-select">
+        <select name="category" class="custom-select">
             <option disabled selected>Category</option>
-            <option value="Healthy">Healthy</option>
-            <option value="Vegetarian">Vegetarian</option>
-            <option value="Vegan">Vegan</option>
+            {% if item in recipes.category %}
+            <option value="{{ item }}">{{ item }}</option>
+            {% else %}
+            <option value="{{ item }}">{{ item }}</option>
+            {% endif %}
         </select>
       </div>
    </div>
    <div class="form-group">
       <div class="input-field col s12">
         <label  for="cook_time">Time</label>
-        <input class="form-control" id="cook_time" type="text" name="cook_time" placeholder="30 min">
+        <input class="form-control" id="cook_time" type="text" name="cook_time" value="{{recipes.cook_time}}">
       </div>
    </div> 
    <div class="form-group">
       <div class="input-field col s12">
         <label for="yields">Yields</label>
-        <input class="form-control" id="yields" type="text" name="yields" placeholder="4">
+        <input class="form-control" id="yields" type="text" name="yields" value="{{recipes.yields}}">
       </div>
    </div>
    <div class="form-group">
       <div class="input-field col s12">
         <label for="author">Author</label>
-        <input class="form-control" id="author" type="text" name="author" placeholder="James Oliver">
+        <input class="form-control" id="author" type="text" name="author" value="{{recipes.author}}">
       </div>
    </div> 
    <div class="form-group">
     <div class="col-md-6">
-        <button class="btn btn-sm btn--red">Add Recipe</button> 
+        <button class="btn btn-sm btn--red">Save Recipe</button> 
         <button class="btn btn-sm btn--red">Cancel</button> 
     </div>
    </div>
