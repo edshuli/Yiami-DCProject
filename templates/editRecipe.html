@@ -57,13 +57,9 @@
       <div class="input-field col s12">
         <label for="course">Course</label>
         <select name="course" class="custom-select">
-            <option disabled selected>Course</option>
+            <option value="" disabled selected>Course</option>
             {% for item in recipes.course %}
-            {% if item in recipes.course %}
             <option value="{{ item }}" selected>{{ item }}</option>
-            {% else %}
-            <option value="{{ item }}">{{ item }}</option>
-            {% endif %}
             {% endfor %}   
         </select>
       </div>
@@ -72,12 +68,10 @@
       <div class="input-field col s12">
       <label for="category">Category</label>
         <select name="category" class="custom-select">
-            <option disabled selected>Category</option>
-            {% if item in recipes.category %}
-            <option value="{{ item }}">{{ item }}</option>
-            {% else %}
-            <option value="{{ item }}">{{ item }}</option>
-            {% endif %}
+            <option value="" disabled selected>Category</option>
+            {% for item in recipes.category %}
+            <option value="{{ item }}" selected>{{ item }}</option>
+            {% endfor %}
         </select>
       </div>
    </div>

@@ -220,7 +220,8 @@ a:hover {
 }
 /*------Each Recipe -------*/
 .recipeContainer{
-    margin-top:20%;
+    margin-top: 20%;
+    margin-bottom: 20px;
 }
 
 .recipeTitle{
@@ -283,9 +284,7 @@ a:hover {
     line-height: 1.5;
     
 }
-.recipeIngredients .cookItem{
-    padding-left:30%
-}
+
 
 .cookItem,
 .cookSteps{
@@ -298,6 +297,10 @@ ul li {
 
 .recipeSteps{
     margin-right: 10px;
+}
+
+.btnContainer{
+    margin-bottom:10px
 }
 
 /*------Add Recipe--------------*/
