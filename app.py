@@ -52,7 +52,7 @@ def logIn():
             flash('Hello ' + session['user'] +'!')
             return redirect(url_for('get_recipes'))
         else:
-           flash('Invalid username/password combination') 
+           flash('Invalid username/password') 
     return render_template('signIn.html', form=form)   
 
 # Sign Up
@@ -66,6 +66,7 @@ def signUp():
             pw_hash =  generate_password_hash(request.form['password'])
             users.insert_one({'username': request.form['username'], 'email': request.form['email'],'password': pw_hash })
             session['user'] = request.form['username']
+            flash('Welcome ' + session['user'] +'!')
             return redirect(url_for('main'))
 
       flash("Sorry username already exists!")
