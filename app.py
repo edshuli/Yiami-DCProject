@@ -10,7 +10,7 @@ from form import RegisterForm, LoginForm
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'recipe_manager'
-app.config["MONGO_URI"] = 'mongodb+srv://tokyo_ghoul:edna@myfirstcluster-uvyys.mongodb.net/recipe_manager?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config['SECRET_KEY']=os.environ.get("SECRET_KEY")
 
 # Set Randome Key
@@ -90,7 +90,8 @@ def get_recipes():
 @app.route('/sort_recipes', methods = ['GET','POST'])
 def sort_recipes():
     if request.method == 'POST':
-        recipes = all_recipes.find({ "$and": [ { "course": request.form["course"] }, { "category": request.form["category"] }]})
+        recipes = all_recipes.find({ "$and": [ { "course": request.form["course"] }, { "category": request.form["category"]}],
+                                     "$or": [ { "course": request.form["course"] }, { "category": request.form["category"]}]})
         print(request.form)
         return render_template('recipes.html', recipes=recipes)
     return render_template('recipes.html', recipes=recipes)
@@ -133,6 +134,7 @@ def editRecipe(recipes_id):
     recipes = all_recipes.find_one({"_id": ObjectId(recipes_id)})
     return render_template("editRecipe.html", recipes = recipes)
 
+#Update Recipe
 @app.route('/updateRecipe/<recipes_id>', methods=["POST"])
 def updateRecipe(recipes_id):
     recipes=all_recipes
@@ -154,7 +156,13 @@ def updateRecipe(recipes_id):
         })
     return redirect(url_for('get_recipes'))
 
-
+#Delete Recipe
+@app.route('/deleteRecipe/<recipes_id>')
+def deleteRecipe(recipes_id):
+    recipes=all_recipes
+    recipes.remove({'_id': ObjectId(recipes_id)})
+    flash('Recipe deleted!')
+    return redirect(url_for('get_recipes'))
 
 
 if __name__ == '__main__':

@@ -10,6 +10,7 @@
     <title>Yiami</title>
 </head>
 <body>
+<header>
     <div class="container-fluid navbar-menu">
         <div class="row">
             <div class="col-12">
@@ -35,22 +36,30 @@
             </div>
         </div>
     </div>
-    
-<!-- !--Displays flash messages 
-    <div class="container alertContainer">
-      <div class="row">
-        <div class="messages">
-            {% with messages = get_flashed_messages() %} 
-            {% if messages %} 
-            {% for message in messages %}
-            <h5 id="alertTitle">{{message}}</h5>
-            {% endfor %} 
-            {% endif %} 
-            {% endwith %}
-        </div>
-      </div>	
-  </div>-->
+  </header>  
+<!-- Flash Messages -->
+ {% for category, message in get_flashed_messages(with_categories=True) %}
+    <div class="alert alert-light alert-dismissible fade show" role="alert">
+             <h6 class="alert-{{category}}">{{ message }}</h6>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+          </button> 
+     </div>      
+{% endfor %}            
+    <main>
+ 
     {% block content %} {% endblock %}
+    </main>
+<!--Icons Container -->
+   <footer class="container-fluid">
+        <div id="footer" class="row">
+            <div class="col icons text-center">
+                <a href="https://gr.pinterest.com/ednashuli/recipes/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://www.facebook.com/uchihaedna" target="_blank"><i class="fab fa-facebook"></i></i></a>
+                <a href="https://www.instagram.com/dido_edna/?hl=el" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+  </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="{{url_for('static', filename='js/jquery.js')}}"></script>

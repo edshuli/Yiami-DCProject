@@ -102,19 +102,20 @@ a:hover {
 
  /*Alert Messages*/
 
-.alertContainer{
-    position: absolute;
+.alert{
+   padding: 12px;
+   margin-top: 50px;
+   width: 60%;
+   margin-left: 12px;
+   background-color: #ab3837;
 }
 
-#alertTitle{
+.alert-message{
     font-size: 15px;
-    font-family: Unna;
-   /* padding-top: 3%;
-    margin-top: 4%;
-    padding-left: 40%;
-    margin-left: 50px;
-    display: inline-grid;*/
+    color:#fff;
+    font-family: auto;
 }
+
 
  /*Jumbotron*/
 .jumbotron {
@@ -224,6 +225,10 @@ a:hover {
     margin-bottom: 20px;
 }
 
+.eachRecipeCard{
+    margin-bottom: 20%;
+}
+
 .recipeTitle{
     font-size: 30px;
     font-weight: 400;
@@ -284,8 +289,6 @@ a:hover {
     line-height: 1.5;
     
 }
-
-
 .cookItem,
 .cookSteps{
     font-family: serif;
@@ -306,6 +309,7 @@ ul li {
 /*------Add Recipe--------------*/
 .addRecipeCont{
     margin-top:50px;
+    margin-bottom:20%;
     background-color: #e7dcd226;
 }
 
@@ -360,62 +364,31 @@ label{
 #signUpBtn{
     margin-bottom:10px;
 }
-/*------SUBSCRIBE CONTAINER -------*/
+/*------FOOTER CONTAINER -------*/
 
-.subscribeContainer {
-    border: 1px dotted #a52a2a;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    width: 88%;
-    margin-left: auto;
-    margin-right: auto;
+.icons{
+    background-color: aliceblue;
 }
 
-.subscribeContainer h3 {
-    text-align: center;
-    font-family: 'Unna', serif;
-    font-weight: 400;
-    font-size: 2em;
-    line-height: 1.4;
-    margin-bottom: .4em;
+.icons a {
+    color:#f8f9fa
 }
-
-
-.emailSub {
-    font-family: inherit;
-    text-transform: none;
-    letter-spacing: 0;
-    font-size: .9rem;
-    color: rgba(0, 0, 0, 0.7);
-}
-
-.subscribeContainer input {
-    text-align: center;
-    margin-bottom: .8em;
-    letter-spacing: .03em;
-    color: #333 !important;
-    padding: 1.2em !important;
-    width: 290px !important;
-    border: 0 !important;
-    background: rgba(0, 0, 0, 0.025) !important;
-}
-
-.subscribeContainer button {
+.icons i{
     display: inline-block;
-    position: relative;
-    padding: 14px 26px;
-    margin-bottom: .25em;
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    line-height: 1.2;
-    outline: 0;
-    border: 2px solid #333;
-    color: #333;
-    text-shadow: none;
-    background: none;
-    border-radius: 0;
-    font-weight: 400;
+    font-size: 20px;
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    padding-top: 12.5px;
+    background-color: #a52a2a;
+    margin: 5px 0 5px 5px;
+}
+
+#footer {
+   position:fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
 }
 
 /*----------------MEDIA QUERIES-----------*/
@@ -488,12 +461,11 @@ label{
         padding-left:30%!important;
         padding-right:30%!important;
     }
-    #alertTitle {
-    font-size: 30px;
-    font-family: Unna;
-    padding-top: 30%;
-    margin-left: 150px;
-    }
+    .alert{   
+        width: 30%;
+        margin-left: 12px;
+        background-color: #ab3837;
+     }
 }
 
 
@@ -551,6 +523,9 @@ label{
     .addRecipeCont{
     margin-top:50px;
     background-color: #e7dcd275;
+    }
+    .icons {
+    background-color: #f5e9dc;
     }
 }
 

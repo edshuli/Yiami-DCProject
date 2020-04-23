@@ -30,7 +30,9 @@ $(document).ready(function(){
 	// Remove aditional preparation step row
 	$('#removeSteps').click(function() {
 		$('#stepsList input:last').remove();
-	});
+    });
+    
+    $('.alert').alert()
  }); 
 
 
