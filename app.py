@@ -10,7 +10,7 @@ from form import RegisterForm, LoginForm
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'recipe_manager'
-app.config["MONGO_URI"] = 'mongodb+srv://tokyo_ghoul:edna@myfirstcluster-uvyys.mongodb.net/recipe_manager?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config['SECRET_KEY']=os.environ.get("SECRET_KEY")
 
 # Set Randome Key
@@ -90,8 +90,8 @@ def get_recipes():
 @app.route('/sort_recipes', methods = ['GET','POST'])
 def sort_recipes():
     if request.method == 'POST':
-        recipes = all_recipes.find({ "$and": [ { "course": request.form["course"] }, { "category": request.form["category"]}],
-                                     "$or": [ { "course": request.form["course"] }, { "category": request.form["category"]}]})
+        recipes = all_recipes.find({ "$and": [ 
+          { "course": request.form["course"] },{ "category": request.form["category"]}   ]})                           
         print(request.form)
         return render_template('recipes.html', recipes=recipes)
     return render_template('recipes.html', recipes=recipes)
