@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var myNav = $(".navbar");
-
+    // Set different background on NavBar while scrolling
     $(window).on('scroll', function() {
     "use strict";
     if ($(window).scrollTop() >= 100) {
@@ -10,7 +10,9 @@ $(document).ready(function(){
         myNav.removeClass("scroll");
     }
     });
-
+     
+    // This steps were insired from GeeksforGeeks and StackOverflow
+    // Add and remove ingredient row
     $("#addIngridient").click(function() {
         $('<input class="form-control" id="ingredients" type="text" name="ingredients" required type="text" value="">').insertBefore('#addIngridient');	
          });
@@ -32,7 +34,13 @@ $(document).ready(function(){
 		$('#stepsList input:last').remove();
     });
     
+
+    // Hide flash messages
     $('.alert').alert()
+
+    $(".alert").click(function(){
+     ("button").hide("slow");
+    });
  }); 
 
 

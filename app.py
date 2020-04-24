@@ -10,7 +10,7 @@ from form import RegisterForm, LoginForm
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'recipe_manager'
-app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.config["MONGO_URI"] = 'mongodb+srv://tokyo_ghoul:edna@myfirstcluster-uvyys.mongodb.net/recipe_manager?retryWrites=true&w=majority'
 app.config['SECRET_KEY']=os.environ.get("SECRET_KEY")
 
 # Set Randome Key
@@ -66,7 +66,6 @@ def signUp():
             pw_hash =  generate_password_hash(request.form['password'])
             users.insert_one({'username': request.form['username'], 'email': request.form['email'],'password': pw_hash })
             session['user'] = request.form['username']
-            flash('Welcome ' + session['user'] +'!')
             return redirect(url_for('main'))
 
       flash("Sorry username already exists!")

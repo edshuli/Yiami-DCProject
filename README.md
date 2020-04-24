@@ -217,6 +217,9 @@ All photos were taken from <a href="https://unsplash.com/t/wallpapers">Unsplash<
 
 ### Acknoledgements
 A **special thanks** to <a href="https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ">Santdex</a> for the guidance of how to creat the loginForm and the registerFormand also to  <a href="https://www.programcreek.com/python/example/51564/forms.LoginForm">https://www.programcreek.com/python/example/51564/forms.LoginForm/RegisterForm</a>.
+For the section of add and remove ingredient/step row on **Add your recipe** form I got help from
+<a href="https://www.geeksforgeeks.org/how-to-add-table-row-in-a-table-using-jquery/">GeeksforGeeks and <a href="https://stackoverflow.com/">Stack Overflow</a>.
+
 I got a lot of help from:
 * <a href="https://stackoverflow.com/">Stack Overflow</a>
 * <a href="https://www.w3schools.com/">W3schools</a>
