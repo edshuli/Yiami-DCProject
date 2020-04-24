@@ -89,8 +89,8 @@ def get_recipes():
 @app.route('/sort_recipes', methods = ['GET','POST'])
 def sort_recipes():
     if request.method == 'POST':
-        recipes = all_recipes.find({ "$or": [ 
-          { "course": request.form["course"] },{ "category": request.form["category"]}   ]})                           
+        recipes = all_recipes.find({ "$or": [ { "course": request.form["course"] },
+                                      {"or":  { "category": request.form["category"]}}]})                                                                                      
         print(request.form)
         return render_template('recipes.html', recipes=recipes)
     return render_template('recipes.html', recipes=recipes)
@@ -163,6 +163,10 @@ def deleteRecipe(recipes_id):
     flash('Recipe deleted!')
     return redirect(url_for('get_recipes'))
 
+# Error
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('error404.html'), 404
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
