@@ -75,7 +75,6 @@ def signUp():
 @app.route('/logOut')
 def logOut():
     session.pop('user')
-    flash("Successfully logged out")
     return redirect(url_for('main'))
 
 
@@ -90,7 +89,7 @@ def get_recipes():
 @app.route('/sort_recipes', methods = ['GET','POST'])
 def sort_recipes():
     if request.method == 'POST':
-        recipes = all_recipes.find({ "$and": [ 
+        recipes = all_recipes.find({ "$or": [ 
           { "course": request.form["course"] },{ "category": request.form["category"]}   ]})                           
         print(request.form)
         return render_template('recipes.html', recipes=recipes)
